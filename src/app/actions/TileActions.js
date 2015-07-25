@@ -1,6 +1,6 @@
 'use strict';
 
-var alt = require('../alt');
+var alt = require('../../alt');
 
 class TileActions {
   constructor() {

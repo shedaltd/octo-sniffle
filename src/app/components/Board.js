@@ -3,8 +3,7 @@ var _ = require('lodash');
 
 var {
     View,
-    StyleSheet,
-    StatusBarIOS
+    StyleSheet
 } = React;
 
 var Dimensions = require('Dimensions');
@@ -12,6 +11,7 @@ var Tile = require('./Tile');
 
 var Layout = require('../styles/Layout');
 var Colours = require('../styles/Colours');
+var BoardStore = require('../stores/BoardStore');
 
 var Board = React.createClass({
     // propTypes:{
@@ -22,6 +22,17 @@ var Board = React.createClass({
             width: Dimensions.get('window').width,
             height: Dimensions.get('window').height
         };
+    },
+    componentDidMount: function () {
+        BoardStore.listen(this._onChange);
+    },
+    componentDidMount: function () {
+        BoardStore.unlisten(this._onChange);
+    },
+    _onChange: function (argument) {
+        this.setState({
+            // Tiles : BoardStore.getState().Boards;
+        });
     },
     _generateRandomColour: function(noOfTiles) {
 
@@ -97,7 +108,7 @@ var Board = React.createClass({
         var tiles = this._createTiles(8);
         var backgroundColor = '#000000';
 
-        StatusBarIOS.setHidden(true);
+
 
         return (
             <View style={[Layout.flexCol, {width: this.state.width, height: this.state.height, backgroundColor: backgroundColor} ]}>

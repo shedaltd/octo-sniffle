@@ -6,6 +6,8 @@ var {
     TouchableHighlight
 } = React;
 
+var TileActions = require('../actions/TileActions');
+
 var Tile = React.createClass({
     // propTypes:{
     //     /**
@@ -26,7 +28,8 @@ var Tile = React.createClass({
     //     };
     // },
     _onTouch: function() {
-        console.log("Clickity click");
+        console.log('hello');
+        TileActions.playTrack({id:"id"});
     },
     _onLongTouch: function() {
         console.log("LONG PRESS BABBBAYYY");

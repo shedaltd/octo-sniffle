@@ -19,8 +19,9 @@ src/*.moved-aside
 src/DerivedData
 src/*.hmap
 src/*.ipa
-src/*.xcuserstate
+src/**/*.xcuserstate
 src/project.xcworkspace
+src/octosniffle.xcodeproj/project.xcworkspace/xcuserdata/DrZoidberg.xcuserdatad/UserInterfaceState.xcuserstate
 xcuserdata/
 xcshareddata/
 

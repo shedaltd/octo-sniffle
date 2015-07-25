@@ -10,4 +10,11 @@ class BoardStore {
     this.bindActions(BoardActions);
   }
 
+  onSaveBoard(board) {
+    var self = this;
+    self.boards = self.boards.merge(board);
+  }
+
 }
+
+module.exports = alt.createStore(BoardStore, 'BoardStore');

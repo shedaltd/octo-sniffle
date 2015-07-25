@@ -26,3 +26,4 @@ src/project.xcworkspace
 #
 src/node_modules/
 src/npm-debug.log
+xcuserdata/

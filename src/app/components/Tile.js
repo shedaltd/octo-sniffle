@@ -2,7 +2,8 @@ var React = require('react-native');
 
 var {
     View,
-    StyleSheet
+    StyleSheet,
+    TouchableHighlight
 } = React;
 
 var Tile = React.createClass({
@@ -24,11 +25,19 @@ var Tile = React.createClass({
     //         height: this.props.height
     //     };
     // },
+    _onTouch: function() {
+        console.log("Clickity click");
+    },
+    _onLongTouch: function() {
+        console.log("LONG PRESS BABBBAYYY");
+    },
     render: function() {
 
         return (
-            <View style={[{width: this.props.width, height: this.props.height, backgroundColor: this.props.colour}]}>
-            </View>
+            <TouchableHighlight onPress={this._onTouch} onLongPress={this._onLongTouch}>
+                <View style={[{width: this.props.width, height: this.props.height, backgroundColor: this.props.colour}]}>
+                </View>
+            </TouchableHighlight>
         );
     }
 });

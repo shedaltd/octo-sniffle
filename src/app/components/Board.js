@@ -29,18 +29,26 @@ var Board = React.createClass({
         var green = Math.floor(Math.random() * 255);
         var blue = Math.floor(Math.random() * 255);
 
-        colour = 'rgb('+red+','+green+','+blue+')';
+        var colour1 = 'rgba('+red+','+green+','+blue+',0.95)';
 
-        return colour;
+        red = 255 - red;
+        green = 255 - green;
+        blue = 255 - blue;
+
+        var colour2 = 'rgba('+red+','+green+','+blue+',0.95)';
+
+        return [colour1, colour2];
 
     },
-    _createRow: function(noOfCols, tileHeight, tileWidth) {
+    _createRow: function(noOfCols, tileHeight, tileWidth, tileColour) {
 
         var rowArray = [];
+        var rowColourArray = this._generateRandomColour();
+
 
         for (var i = 0; i < noOfCols; i++) {
-            var colour = this._generateRandomColour();
 
+            var colour = rowColourArray[i];
             var tile = (
                 <Tile width={tileWidth} height={tileHeight} colour={colour} />
             )

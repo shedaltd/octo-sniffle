@@ -14,7 +14,7 @@
 		<string>https://github.com/seedtech/octo-sniffle.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>octosniffle/octosniffle.xcodeproj</string>
+	<string>src/octosniffle.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>BE116FB633BC1B0400FDB4545304BDE0B3197EE9</key>

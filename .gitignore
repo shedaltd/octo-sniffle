@@ -21,9 +21,10 @@ src/*.hmap
 src/*.ipa
 src/*.xcuserstate
 src/project.xcworkspace
+xcuserdata/
+xcshareddata/
 
 # node.js
 #
 src/node_modules/
 src/npm-debug.log
-xcuserdata/

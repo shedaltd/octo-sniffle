@@ -1,4 +1,5 @@
 var React = require('react-native');
+var _ = require('lodash');
 
 var {
     View,
@@ -6,6 +7,9 @@ var {
 } = React;
 
 var Dimensions = require('Dimensions');
+var Tile = require('./Tile');
+
+var Layout = require('../styles/Layout');
 
 var Board = React.createClass({
     // propTypes:{
@@ -17,6 +21,40 @@ var Board = React.createClass({
             height: Dimensions.get('window').height
         };
     },
+    _createRow: function(noOfCols, tileHeight, tileWidth) {
+
+        var rowArray = [];
+
+        for (var i = 0; i < noOfCols; i++) {
+            var tile = (
+                <Tile width={tileWidth} height={tileHeight} colour={'#404040'} />
+            )
+            rowArray.push(tile);
+        };
+
+        return rowArray;
+
+
+    },
+    _createCol: function(noOfRows, noOfCols, tileHeight, tileWidth) {
+
+        var columnArray = [];
+
+        for (var i = 0; i < noOfRows; i++) {
+
+            var tiles = this._createRow(noOfCols, tileHeight, tileWidth);
+
+            var row = (
+                <View style={Layout.flexRow}>
+                    {tiles}
+                </View>
+            )
+            columnArray.push(row);
+        };
+
+        return columnArray;
+
+    },
     _createTiles: function(noOfTiles) {
 
         console.log(noOfTiles);
@@ -27,23 +65,23 @@ var Board = React.createClass({
         var tileWidth = this.state.width / noOfCols;
         var tileHeight = this.state.height / noOfRows;
 
-        console.log("View Width: " + this.state.width);
-        console.log("Tile Width: " + tileWidth);
+        var columns = this._createCol(noOfRows, noOfCols, tileHeight, tileWidth);
 
-        console.log("View Height: " + this.state.height);
-        console.log("Tile Height: " + tileHeight);
-
+        return columns;
 
     },
     render: function() {
 
-        this._createTiles(8);
+
+
+        var tiles = this._createTiles(8);
+        console.log(tiles);
 
         var backgroundColor = '#000000';
 
         return (
-            <View style={[{width: this.state.width, height: this.state.height, backgroundColor: backgroundColor} ]}>
-
+            <View style={[Layout.flexCol, {width: this.state.width, height: this.state.height, backgroundColor: backgroundColor} ]}>
+                {tiles}
             </View>
         );
     }

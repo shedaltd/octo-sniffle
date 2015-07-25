@@ -5,7 +5,12 @@ var {
 
 var styles = StyleSheet.create({
 
-    
+    flexRow: {
+        flexDirection: 'row'
+    },
+    flexCol: {
+        flexDirection: 'column'
+    }
 
 });
 

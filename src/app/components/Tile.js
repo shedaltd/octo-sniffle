@@ -5,21 +5,19 @@ var {
     StyleSheet
 } = React;
 
-var Tiles = React.createClass({
-    propTypes:{
-        /**
-        * Width of Individual Tile
-        * type: Int
-        **/
-        width: React.propTypes.Int,
-        /**
-        * Height of Individual Tile
-        * type: Int
-        **/
-        width: React.propTypes.Height
-
-
-    },
+var Tile = React.createClass({
+    // propTypes:{
+    //     /**
+    //     * Width of Individual Tile
+    //     * type: Int
+    //     **/
+    //     width: React.propTypes.number,
+    //     /**
+    //     * Height of Individual Tile
+    //     * type: Int
+    //     **/
+    //     height: React.propTypes.number
+    // },
     // getInitialState: function() {
     //     return {
     //         width: this.props.width,
@@ -38,4 +36,4 @@ var Tiles = React.createClass({
 var styles = StyleSheet.create({
 
 });
-module.exports = Tiles;
+module.exports = Tile;

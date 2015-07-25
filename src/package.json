@@ -6,6 +6,9 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "react-native": "^0.8.0"
+    "react-native": "^0.8.0",
+    "seamless-immutable": "~2.4.2",
+    "lodash": "~3.10.0",
+    "alt": "~0.17.1"
   }
 }

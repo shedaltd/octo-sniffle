@@ -1,1 +1,28 @@
-src/node_modules
+# OSX
+#
+src/.DS_Store
+
+# Xcode
+#
+build/
+src/*.pbxuser
+src/!default.pbxuser
+src/*.mode1v3
+src/!default.mode1v3
+src/*.mode2v3
+src/!default.mode2v3
+src/*.perspectivev3
+src/!default.perspectivev3
+src/xcuserdata
+src/*.xccheckout
+src/*.moved-aside
+src/DerivedData
+src/*.hmap
+src/*.ipa
+src/*.xcuserstate
+src/project.xcworkspace
+
+# node.js
+#
+src/node_modules/
+src/npm-debug.log

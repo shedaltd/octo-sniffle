@@ -3,13 +3,15 @@ var _ = require('lodash');
 
 var {
     View,
-    StyleSheet
+    StyleSheet,
+    StatusBarIOS
 } = React;
 
 var Dimensions = require('Dimensions');
 var Tile = require('./Tile');
 
 var Layout = require('../styles/Layout');
+var Colours = require('../styles/Colours');
 
 var Board = React.createClass({
     // propTypes:{
@@ -21,19 +23,31 @@ var Board = React.createClass({
             height: Dimensions.get('window').height
         };
     },
+    _generateRandomColour: function(noOfTiles) {
+
+        var red = Math.floor(Math.random() * 255);
+        var green = Math.floor(Math.random() * 255);
+        var blue = Math.floor(Math.random() * 255);
+
+        colour = 'rgb('+red+','+green+','+blue+')';
+
+        return colour;
+
+    },
     _createRow: function(noOfCols, tileHeight, tileWidth) {
 
         var rowArray = [];
 
         for (var i = 0; i < noOfCols; i++) {
+            var colour = this._generateRandomColour();
+
             var tile = (
-                <Tile width={tileWidth} height={tileHeight} colour={'#404040'} />
+                <Tile width={tileWidth} height={tileHeight} colour={colour} />
             )
             rowArray.push(tile);
         };
 
         return rowArray;
-
 
     },
     _createCol: function(noOfRows, noOfCols, tileHeight, tileWidth) {
@@ -57,13 +71,13 @@ var Board = React.createClass({
     },
     _createTiles: function(noOfTiles) {
 
-        console.log(noOfTiles);
 
         var noOfRows = noOfTiles / 2;
         var noOfCols = Math.floor(noOfTiles / noOfRows);
 
         var tileWidth = this.state.width / noOfCols;
         var tileHeight = this.state.height / noOfRows;
+
 
         var columns = this._createCol(noOfRows, noOfCols, tileHeight, tileWidth);
 
@@ -72,12 +86,10 @@ var Board = React.createClass({
     },
     render: function() {
 
-
-
         var tiles = this._createTiles(8);
-        console.log(tiles);
-
         var backgroundColor = '#000000';
+
+        StatusBarIOS.setHidden(true);
 
         return (
             <View style={[Layout.flexCol, {width: this.state.width, height: this.state.height, backgroundColor: backgroundColor} ]}>

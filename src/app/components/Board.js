@@ -117,8 +117,6 @@ var Board = React.createClass({
         var tiles = this.state.Tiles;
         var backgroundColor = '#000000';
 
-
-
         return (
             <View style={[Layout.flexCol, {width: this.state.width, height: this.state.height, backgroundColor: backgroundColor} ]}>
                 {tiles}

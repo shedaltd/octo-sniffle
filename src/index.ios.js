@@ -19,9 +19,7 @@ var BoardStore = require('./app/stores/BoardStore');
 
 var octosniffle = React.createClass({
     getInitialState: function() {
-        return (
-            board: undefined;
-        );
+        return {board: undefined};
     },
    componentDidMount: function () {
 

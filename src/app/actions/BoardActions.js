@@ -1,10 +1,10 @@
 'use strict';
 
-var alt = require('../alt');
+var alt = require('../../alt');
 
 class BoardActions {
   constructor() {
-    this.generateActions('saveBoard', 'addTile');
+    this.generateActions('addBoard','saveBoard', 'addTile');
   }
 }
 

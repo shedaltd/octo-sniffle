@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>BE116FB633BC1B0400FDB4545304BDE0B3197EE9</key>
-		<string>https://github.com/seedtech/octo-sniffle.git</string>
+		<string>github.com:seedtech/octo-sniffle.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>src/octosniffle.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/seedtech/octo-sniffle.git</string>
+	<string>github.com:seedtech/octo-sniffle.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

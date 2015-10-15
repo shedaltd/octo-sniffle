@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh"
-  },
-  "dependencies": {
-    "react-native": "^0.8.0",
+   },
+   "engines": {
+     "node": ">=4"
+   },
+   "dependencies": {
+    "react-native": "^0.13.0-rc",
     "seamless-immutable": "~2.4.2",
     "lodash": "~3.10.0",
     "alt": "~0.17.1",
-    "react-native-media-player": "seedtech/react-native-media-player"
+    "react-native-media-player": "file:./local_modules/react-native-media-player"
   }
 }

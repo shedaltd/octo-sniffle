@@ -1,5 +1,5 @@
 var React = require('react-native');
-
+var AudioPlayer = require('react-native-media-player');
 var {
     View,
     StyleSheet,
@@ -19,14 +19,17 @@ var Tile = React.createClass({
     //     **/
     //     height: React.propTypes.number
     // },
-    // getInitialState: function() {
-    //     return {
-    //         width: this.props.width,
-    //         height: this.props.height
-    //     };
-    // },
+    getInitialState: function() {
+        return {
+            tracks: ['banzan-23.mp3','basement.mp3','frozen-flokati.mp3','nolimit.mp3',
+            'organge-sprinkles.mp3','plasticized.mp3','small-silver.mp3','vicious-sid.mp3'],
+        };
+    },
     _onTouch: function() {
         console.log("Clickity click");
+        var track = this.state.tracks[this.props.id];
+        console.log(track);
+        AudioPlayer.playAddedTrack(track,false);
     },
     _onLongTouch: function() {
         console.log("LONG PRESS BABBBAYYY");

@@ -1,0 +1,26 @@
+{
+  "name": "react-native-media-player",
+  "version": "0.0.5",
+  "description": "React Native library for simple Media playing. Wraps AVPlayer.",
+  "main": "RCTMedia/Media.ios.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seedtech/react-native-media-player"
+  },
+  "author": "Mike Ebinum <mike@seeddigital.co> (https://github.com/mebinum)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seedtech/react-native-media-player/issues"
+  },
+  "files": [
+    "RCTMedia/AudioPlayerManager.m",
+    "RCTMedia/AudioPlayerManager.swift",
+    "RCTMedia/Media.ios.js",
+    "README.md"
+  ],
+  "homepage": "https://github.com/seedtech/react-native-media-player",
+  "private": "true"
+}

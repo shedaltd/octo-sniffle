@@ -17,10 +17,18 @@ var Board = React.createClass({
     // propTypes:{
     //
     // },
+    componentDidMount: function() {
+        var tiles = this._createTiles(8);
+        this.setState({
+            Tiles: tiles
+        });
+    },
     getInitialState: function() {
         return {
             width: Dimensions.get('window').width,
-            height: Dimensions.get('window').height
+            height: Dimensions.get('window').height,
+
+            tileCount: 0
         };
     },
     _generateRandomColour: function(noOfTiles) {
@@ -44,14 +52,15 @@ var Board = React.createClass({
 
         var rowArray = [];
         var rowColourArray = this._generateRandomColour();
-
+        var tileCount = this.state.tileCount;
 
         for (var i = 0; i < noOfCols; i++) {
 
             var colour = rowColourArray[i];
             var tile = (
-                <Tile width={tileWidth} height={tileHeight} colour={colour} />
+                <Tile width={tileWidth} height={tileHeight} colour={colour} id={tileCount} />
             )
+            this.setState({tileCount: ++tileCount});
             rowArray.push(tile);
         };
 
@@ -94,7 +103,7 @@ var Board = React.createClass({
     },
     render: function() {
 
-        var tiles = this._createTiles(8);
+        var tiles = this.state.Tiles;
         var backgroundColor = '#000000';
 
         StatusBarIOS.setHidden(true);

@@ -16,6 +16,7 @@ var Board = require('./app/components/Board');
 
 var octosniffle = React.createClass({
   render: function() {
+    
     return (
       <View style={styles.container}>
         <Board />

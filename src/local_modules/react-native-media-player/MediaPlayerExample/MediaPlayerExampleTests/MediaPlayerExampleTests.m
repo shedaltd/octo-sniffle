@@ -10,17 +10,18 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-#import "RCTLog.h"
+#import "RCTAssert.h"
+#import "RCTRedBox.h"
 #import "RCTRootView.h"
 
 #define TIMEOUT_SECONDS 240
 #define TEXT_TO_LOOK_FOR @"Welcome to React Native!"
 
-@interface octosniffleTests : XCTestCase
+@interface MediaPlayerExampleTests : XCTestCase
 
 @end
 
-@implementation octosniffleTests
+@implementation MediaPlayerExampleTests
 
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
@@ -36,37 +37,32 @@
   return NO;
 }
 
-- (void)testRendersWelcomeScreen
-{
+- (void)testRendersWelcomeScreen {
   UIViewController *vc = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
   NSDate *date = [NSDate dateWithTimeIntervalSinceNow:TIMEOUT_SECONDS];
   BOOL foundElement = NO;
-  
-  __block NSString *redboxError = nil;
-  RCTSetLogFunction(^(RCTLogLevel level, NSString *fileName, NSNumber *lineNumber, NSString *message) {
-    if (level >= RCTLogLevelError) {
-      redboxError = message;
-    }
-  });
-  
+  NSString *redboxError = nil;
+
   while ([date timeIntervalSinceNow] > 0 && !foundElement && !redboxError) {
     [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     [[NSRunLoop mainRunLoop] runMode:NSRunLoopCommonModes beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
-    
+
+    redboxError = [[RCTRedBox sharedInstance] currentErrorMessage];
+
     foundElement = [self findSubviewInView:vc.view matching:^BOOL(UIView *view) {
-      if ([view.accessibilityLabel isEqualToString:TEXT_TO_LOOK_FOR]) {
-        return YES;
+      if ([view respondsToSelector:@selector(attributedText)]) {
+        NSString *text = [(id)view attributedText].string;
+        if ([text isEqualToString:TEXT_TO_LOOK_FOR]) {
+          return YES;
+        }
       }
       return NO;
     }];
   }
-  
-  RCTSetLogFunction(RCTDefaultLogFunction);
-  
-  XCTAssertNil(redboxError, @"RedBox error: %@", redboxError);
-  XCTAssertTrue(foundElement, @"Couldn't find element with text '%@' in %d seconds", TEXT_TO_LOOK_FOR, TIMEOUT_SECONDS);
-}
 
+  XCTAssertNil(redboxError, @"RedBox error: %@", redboxError);
+  XCTAssertTrue(foundElement, @"Cound't find element with text '%@' in %d seconds", TEXT_TO_LOOK_FOR, TIMEOUT_SECONDS);
+}
 
 
 @end
